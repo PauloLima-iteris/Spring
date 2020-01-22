@@ -18,9 +18,9 @@ public class CategoriaEventoService {
         this.categoriaeventoRepository = categoriaeventoRepository;
     }
 
-    public CategoriaEvento createCategoriaEvento(CategoriaEvento model) {
-        return categoriaeventoRepository.save(model);
-    }
+    // public CategoriaEvento createCategoriaEvento(CategoriaEvento model) {
+    //     return categoriaeventoRepository.save(model);
+    // }
 
     public List<CategoriaEvento> listCategoriaEvento() {
         return categoriaeventoRepository.findAll();
@@ -31,19 +31,19 @@ public class CategoriaEventoService {
         return categoriaevento.orElseThrow(() -> new DataNotFoundException("CategoriaEvento Not found"));
     }
     
-    public void delete(Integer IdCategoriaEvento) {
-        categoriaeventoRepository.deleteById(IdCategoriaEvento);
-    }
+    // public void delete(Integer IdCategoriaEvento) {
+    //     categoriaeventoRepository.deleteById(IdCategoriaEvento);
+    // }
 
-    public CategoriaEvento update(CategoriaEvento novo){
-        CategoriaEvento antigo = findById(novo.getIdCategoriaEvento());
-        antigo.setNomeCategoria(novo.getNomeCategoria());
+    // public CategoriaEvento update(CategoriaEvento novo){
+    //     CategoriaEvento antigo = findById(novo.getIdCategoriaEvento());
+    //     antigo.setNomeCategoria(novo.getNomeCategoria());
 
-        return categoriaeventoRepository.save(antigo);
-    }
+    //     return categoriaeventoRepository.save(antigo);
+    // }
 
-    public  List<String> listDistinct() {
-        return categoriaeventoRepository.listDistinct();
-	}
+    // public  List<String> listDistinct() {
+    //     return categoriaeventoRepository.listDistinct();
+	// }
 
 }

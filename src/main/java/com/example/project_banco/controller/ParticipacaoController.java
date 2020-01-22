@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import com.example.project_banco.domain.dto.request.ParticipacaoRequest;
 import com.example.project_banco.domain.dto.response.ParticipacaoResponse;
+import com.example.project_banco.service.EventoService;
 import com.example.project_banco.service.ParticipacaoService;
 import com.example.project_banco.domain.entities.Participacao;
 import com.example.project_banco.domain.mapper.ParticipacaoMapper;
@@ -25,11 +26,13 @@ public class ParticipacaoController {
 
 	private final ParticipacaoService participacaoService;
 	private final ParticipacaoMapper mapper;
+	//private final EventoService eventoService;
 
 	@Autowired
 	public ParticipacaoController(ParticipacaoService participacaoService, ParticipacaoMapper participacaoMapper) {
 		this.participacaoService = participacaoService;
 		this.mapper = participacaoMapper;
+		//this.eventoService = eventoService;
 	}
 	
 	@GetMapping(value = "/{id}")
@@ -52,6 +55,12 @@ public class ParticipacaoController {
 	@PostMapping
 	public ResponseEntity<ParticipacaoResponse> post(@Valid @RequestBody ParticipacaoRequest model) {
 		Participacao participacao = participacaoService.createParticipacao(mapper.fromDto(model));
+
+		//participacao.setEvento(eventoService.findById(model.getIdEvento()));
+	
+		//participacaoService.createParticipacao(participacao);
+	
+
 		return ResponseEntity.ok(mapper.toDto(participacao));
 	}
 

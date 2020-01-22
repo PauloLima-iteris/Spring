@@ -44,31 +44,31 @@ public class StatusEventoController {
 				.collect(Collectors.toList()));
 	}
 
-	@GetMapping(value = "/distinct")
-	public ResponseEntity<List<String>> listDistinct() {
-		return ResponseEntity.ok(statuseventoService.listDistinct());
-	}
+	// @GetMapping(value = "/distinct")
+	// public ResponseEntity<List<String>> listDistinct() {
+	// 	return ResponseEntity.ok(statuseventoService.listDistinct());
+	// }
 
-	@PostMapping
-	public ResponseEntity<StatusEventoResponse> post(@Valid @RequestBody StatusEventoRequest model) {
-		StatusEvento statusevento = statuseventoService.createStatusEvento(mapper.fromDto(model));
-		return ResponseEntity.ok(mapper.toDto(statusevento));
-	}
+	// @PostMapping
+	// public ResponseEntity<StatusEventoResponse> post(@Valid @RequestBody StatusEventoRequest model) {
+	// 	StatusEvento statusevento = statuseventoService.createStatusEvento(mapper.fromDto(model));
+	// 	return ResponseEntity.ok(mapper.toDto(statusevento));
+	// }
 
-	@PutMapping(value = "/{id}")
-	public ResponseEntity<StatusEventoResponse> update(@PathVariable Integer IdEventoStatus, @Valid @RequestBody StatusEventoRequest model){
-		StatusEvento statusevento = mapper.fromDto(model);
-		statusevento.setIdEventoStatus(IdEventoStatus);
-		statuseventoService.update(statusevento);
+	// @PutMapping(value = "/{id}")
+	// public ResponseEntity<StatusEventoResponse> update(@PathVariable Integer IdEventoStatus, @Valid @RequestBody StatusEventoRequest model){
+	// 	StatusEvento statusevento = mapper.fromDto(model);
+	// 	statusevento.setIdEventoStatus(IdEventoStatus);
+	// 	statuseventoService.update(statusevento);
 
-		return ResponseEntity.ok(mapper.toDto(statusevento));
-	}
+	// 	return ResponseEntity.ok(mapper.toDto(statusevento));
+	// }
 
-	@DeleteMapping(value = "/{id}")
-    public void deleteById(@PathVariable Integer IdEventoStatus) {
+	// @DeleteMapping(value = "/{id}")
+    // public void deleteById(@PathVariable Integer IdEventoStatus) {
 
-		statuseventoService.delete(IdEventoStatus);
+	// 	statuseventoService.delete(IdEventoStatus);
 
-	}
+	// }
 
 }

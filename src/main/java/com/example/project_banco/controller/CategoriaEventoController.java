@@ -44,31 +44,31 @@ public class CategoriaEventoController {
 				.collect(Collectors.toList()));
 	}
 
-	@GetMapping(value = "/distinct")
-	public ResponseEntity<List<String>> listDistinct() {
-		return ResponseEntity.ok(categoriaeventoService.listDistinct());
-	}
+	// @GetMapping(value = "/distinct")
+	// public ResponseEntity<List<String>> listDistinct() {
+	// 	return ResponseEntity.ok(categoriaeventoService.listDistinct());
+	// }
 
-	@PostMapping
-	public ResponseEntity<CategoriaEventoResponse> post(@Valid @RequestBody CategoriaEventoRequest model) {
-		CategoriaEvento categoriaevento = categoriaeventoService.createCategoriaEvento(mapper.fromDto(model));
-		return ResponseEntity.ok(mapper.toDto(categoriaevento));
-	}
+	// @PostMapping
+	// public ResponseEntity<CategoriaEventoResponse> post(@Valid @RequestBody CategoriaEventoRequest model) {
+	// 	CategoriaEvento categoriaevento = categoriaeventoService.createCategoriaEvento(mapper.fromDto(model));
+	// 	return ResponseEntity.ok(mapper.toDto(categoriaevento));
+	// }
 
-	@PutMapping(value = "/{id}")
-	public ResponseEntity<CategoriaEventoResponse> update(@PathVariable Integer IdCategoriaEvento, @Valid @RequestBody CategoriaEventoRequest model){
-		CategoriaEvento categoriaevento = mapper.fromDto(model);
-		categoriaevento.setIdCategoriaEvento(IdCategoriaEvento);
-		categoriaeventoService.update(categoriaevento);
+	// @PutMapping(value = "/{id}")
+	// public ResponseEntity<CategoriaEventoResponse> update(@PathVariable Integer IdCategoriaEvento, @Valid @RequestBody CategoriaEventoRequest model){
+	// 	CategoriaEvento categoriaevento = mapper.fromDto(model);
+	// 	categoriaevento.setIdCategoriaEvento(IdCategoriaEvento);
+	// 	categoriaeventoService.update(categoriaevento);
 
-		return ResponseEntity.ok(mapper.toDto(categoriaevento));
-	}
+	// 	return ResponseEntity.ok(mapper.toDto(categoriaevento));
+	// }
 
-	@DeleteMapping(value = "/{id}")
-    public void deleteById(@PathVariable Integer IdCategoriaEvento) {
+	// @DeleteMapping(value = "/{id}")
+    // public void deleteById(@PathVariable Integer IdCategoriaEvento) {
 
-		categoriaeventoService.delete(IdCategoriaEvento);
+	// 	categoriaeventoService.delete(IdCategoriaEvento);
 
-	}
+	// }
 
 }
